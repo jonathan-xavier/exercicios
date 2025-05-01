@@ -28,5 +28,7 @@ myarray.forEach(item => {
     }
 });
 
+//isso aqui tbm funciona. nao repete os valores do array
+const arrayNoDuplicates = Array.from(new Set(myarray));
 
-console.log("duplicates: ", [...duplicates])
+console.log("duplicates: ", seen)
