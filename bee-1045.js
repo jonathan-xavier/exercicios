@@ -17,10 +17,10 @@ const isAtriangle = (valorA, valorB, valorC) => {
         return acc;
     }, {})
 
-    if(Object.values(equal).some(count => count === 2)){
+    if (Object.values(equal).some(count => count === 2)) {
         exception = "TRIANGULO ISOSCELES"
     }
-    if(Object.values(equal).some(count => count === 3)){
+    if (Object.values(equal).some(count => count === 3)) {
         exception = "TRIANGULO EQUILATERO"
     }
 
@@ -33,11 +33,10 @@ const isAtriangle = (valorA, valorB, valorC) => {
     } else if (Math.pow(a, 2) < (b * b + c * c)) {
         result = "TRIANGULO ACUTANGULO"
     }
-    if(result){
-
+    if (result) {
         mainResult.push(result)
     }
-    if(exception){
+    if (exception) {
         mainResult.push(exception)
     }
     return mainResult
@@ -45,11 +44,11 @@ const isAtriangle = (valorA, valorB, valorC) => {
 
 const valores = [7.0, 7.0, 12.0]
 const [a, b, c] = valores.map(item => parseFloat(item))
-const formateed = isAtriangle(a,b,c)
-let formattedArray =""
-if(formateed.length === 2){
+const formateed = isAtriangle(a, b, c)
+let formattedArray = ""
+if (formateed.length === 2) {
     formattedArray = formateed.join("\n")
-}else {
+} else {
     formattedArray = formateed.join("")
 }
 
