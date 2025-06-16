@@ -156,6 +156,8 @@ const getExcendentUsersCount = () => {
         // return theBiggest
         const maxPeakOfUsers = data.reduce((prev, curr) => Math.max(prev, curr.peakOfUsers), 0);
         return Math.abs(Math.min(totalLicenses - maxPeakOfUsers, 0))
+
+     
         
 }
 
@@ -169,4 +171,80 @@ const getTheBiggestExcedent2 = () => {
     );
   };
 
-console.log(getTheBiggestExcedent2())
+// console.log(getTheBiggestExcedent2())
+let randomNumber = (-1)
+// console.log(+randomNumber)
+
+
+
+const itens = [
+    {description: "pen", quantity: 1, price: 3},
+    {description: "rule", quantity: 2, price: 5},
+    {description: "erase", quantity: 2, price: 6}
+]
+
+const result = itens.reduce((prev, curr) => {
+    return prev + (curr.quantity * curr.price)
+},0)
+
+const names = ["Daniel", "Maria", "Marta", "Juca", "João", "Jéssica"]
+
+const namesCount = names.reduce((prev, curr) => {
+    let initial = curr.substring(0,1)
+    prev[initial.toLowerCase()] = (prev[initial.toLowerCase()] ?? 0) + 1
+    
+    return prev
+    // return {
+    //     ...prev,
+    //     [initial]: (prev[initial.toLowerCase()] ?? 0) + 1
+    // }
+
+}, {})    
+
+
+
+//esperado 
+//namesCount = {d:1, m: 2, j:3}
+
+const people = [
+    {name: "Daniel", idade: 28 },
+    {name: "Maria", idade: 29 },
+    {name: "Marta", idade: 29 },
+]
+
+const CountNames = people.reduce((prev, curr) => {
+    let repeat = []
+    repeat.push(curr.idade)
+
+    let names = []
+    let hasRepeat = repeat.filter((item, index, self) => {
+        return self.indexOf(item) !== index
+    })
+    
+
+    if(hasRepeat){
+        names.push(curr.name)
+        prev[curr.idade] =  [
+            ...(prev[curr.idade] || []),
+            curr.name,
+        ]
+    }else {
+        prev[curr.idade] = [...names]
+    }
+    return prev
+    
+}, {})
+
+const resultguabi =people.reduce((prev, {name, idade}) => {
+    return {
+         ...prev,
+        [idade]: (prev[idade] || []).concat(name),
+    }
+}, {})
+
+    console.log(resultguabi);
+    
+
+    
+//resultado esperado
+// { "28": ["Daniel"], "29": ["Maria", "Marta"]}
